@@ -1,0 +1,220 @@
+{% extends 'base_templates/index.html' %}
+{% load static %}
+{% load active %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+{% load account socialaccount %}
+
+{% block head_title %}{% trans "Sign In" %}{% endblock %}
+{% block content %}
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+
+.card2 {
+    margin: 0px 40px
+}
+
+.logos {
+    width: 200px;
+    height: 100px;
+    margin-top: 20px;
+    margin-left: 35px
+}
+
+.image {
+    width: 360px;
+    height: 280px
+}
+.cl{
+color:black;
+}
+
+.border-line {
+    border-right: 1px solid #EEEEEE
+}
+
+.facebooks {
+    background-color: #3b5998;
+    color: #fff;
+    font-size: 18px;
+    padding-top: 5px;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    cursor: pointer
+}
+
+.twitters {
+    background-color: #1DA1F2;
+    color: #fff;
+    font-size: 18px;
+    padding-top: 5px;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    cursor: pointer
+}
+
+.linkedins {
+    background-color: #2867B2;
+    color: #fff;
+    font-size: 18px;
+    padding-top: 5px;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    cursor: pointer
+}
+
+.line {
+    height: 1px;
+    width: 45%;
+    background-color: #E0E0E0;
+    margin-top: 10px
+}
+
+.or {
+    width: 10%;
+    font-weight: bold
+}
+
+.text-sm {
+    font-size: 14px !important
+}
+
+::placeholder {
+    color: #BDBDBD;
+    opacity: 1;
+    font-weight: 300
+}
+
+:-ms-input-placeholder {
+    color: #BDBDBD;
+    font-weight: 300
+}
+
+::-ms-input-placeholder {
+    color: #BDBDBD;
+    font-weight: 300
+}
+
+input,
+textarea {
+    padding: 10px 12px 10px 12px;
+    border: 1px solid lightgrey;
+    border-radius: 2px;
+    margin-bottom: 5px;
+    margin-top: 2px;
+    width: 100%;
+    box-sizing: border-box;
+    color: #2C3E50;
+    font-size: 14px;
+    letter-spacing: 1px
+}
+
+input:focus,
+textarea:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border: 1px solid #304FFE;
+    outline-width: 0
+}
+
+button:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    outline-width: 0
+}
+
+a {
+    color: inherit;
+    cursor: pointer
+}
+
+.btn-blue {
+    background-color: #1A237E;
+    width: 150px;
+    color: #fff;
+    border-radius: 2px
+}
+
+.btn-blue:hover {
+    color:#fff;
+    cursor: pointer
+}
+#hero h1 {
+    margin: 0 0 10px 0;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 56px;
+    text-transform: uppercase;
+    color: #000;
+}
+.bg-blue {
+    color: #fff;
+    background-color: #1A237E
+}
+Style Attribute {
+    margin-top: 5%;
+    color: #121212;
+}
+
+
+</style>
+
+
+<div class="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto" style="color:black">
+    <div class="card card0 border-0">
+        <div class="row d-flex">
+          <div class="col-lg-6">
+                <div class="card2 card border-0 px-4 py-5">
+
+                       <form class="login" style="float:none" method="POST" action="">
+
+  {% csrf_token %}
+<h1>Sign Up</h1>
+
+{% if messages %}
+<ul>
+	{% for message in messages %}
+    <li>{{ message|safe }}</li>
+	{% endfor %}
+</ul>
+{% endif %}
+
+{{ form.as_p }}
+                  <div class="form-footer">
+  <div class="row mb-3 px-3"> <button type="submit" class="btn btn-blue text-center">Signup</button> </div>
+    <div class="row mb-4 px-3"> <small class="font-weight-bold">if already have account? <a class="text-danger ">Login</a></small> </div>
+</div>
+                       </form>
+
+
+
+{% get_providers as socialaccount_providers %}
+
+
+
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card1 pb-5">
+                    <div class="row logos"> </div>
+                    <div class="row px-3 justify-content-center mt-4 mb-5 border-line"> <img src="{% static 'images/login.png' %}" class="image"> </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+{% endblock %}

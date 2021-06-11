@@ -1,0 +1,33 @@
+.asteriskField{
+    color: red;
+    padding-left: 2px;
+}
+
+table.dataTable tr.odd {
+    background-color: #6a8195;
+}
+
+table.dataTable tr.even {
+    background-color: #6a8195;
+}
+
+table.dataTable tr.even td.sorting_1 {
+    background-color: #6a8195;
+}
+table.dataTable tr.odd td.sorting_1 {
+    background-color: #6a8195;
+}
+
+.dataTables_paginate {
+    margin: 4px;
+    width: 198px;
+    height: 42px;
+    padding: 10px;
+    background: currentColor;
+    float: right;
+    text-align: right;
+}
+
+#table_id_filter{
+    margin-bottom: 10px;
+}
