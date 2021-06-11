@@ -7,10 +7,10 @@ from .registration_and_login_forms import Login_View, Logout_View, Signup_View
 # Create your views here.
 
 from django.contrib.auth.decorators import login_required
-from .models import File, UploadFileModelForm, file_Json_data
+from .models import File, UploadFileModelForm, Files, file_Json_data, files_data
 from django.db import IntegrityError
 from django.contrib import messages
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, resolve_url
 
 
 
@@ -69,6 +69,7 @@ def files(request):
 @login_required()
 def file_data(request):
     id=request.GET.get('id')
+    print('--- id --',id)
     f_data = file_Json_data.objects.filter(files_id=id)
     file_ = File.objects.get(id=id).file
     context = {

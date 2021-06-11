@@ -56,10 +56,14 @@ LOGIN_REDIRECT_URL = '/'
 ACCOUNT_LOGOUT_REDIRECT_URL  = '/'
 ACCOUNT_SIGNUP_REDIRECT_URL = settings.LOGIN_REDIRECT_URL
 ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = True
+ACCOUNT_EMAIL_CONFIRMATION_ANONYMOUS_REDIRECT_URL = settings.LOGIN_URL
+ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS =3
+ACCOUNT_AUTHENTICATION_METHOD = "username_email"
 
 ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 3
 ACCOUNT_LOGOUT_ON_PASSWORD_CHANGE = True
 ACCOUNT_LOGIN_ON_PASSWORD_RESET = True
+ACCOUNT_UNIQUE_EMAIL = True
 
 # ROLEPERMISSIONS_MODULE = 'release_ad.roles'
 ROLEPERMISSIONS_REDIRECT_TO_LOGIN = True
@@ -107,7 +111,7 @@ WSGI_APPLICATION = 'load_json_files.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, 'db3.sqlite3'),
     }
 }
 
@@ -155,6 +159,3 @@ MEDIA_ROOT = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file
 MEDIA_URL = '/mediafiles/'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
-
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
